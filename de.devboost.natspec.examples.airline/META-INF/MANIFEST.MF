@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Airline
-Bundle-SymbolicName: de.devboost.natspec.examples.airline
+Bundle-SymbolicName: com.nat-spec.examples.airline.persistence
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7, JavaSE-1.6
 Export-Package: de.devboost.natspec.examples.airline,

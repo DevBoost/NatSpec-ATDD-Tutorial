@@ -15,7 +15,7 @@ public class FormalAirlineSchema extends AbstractNatSpecTemplate {
 
 	public void createDataModel() {
 		// generated code will be inserted here
-		// The code in this method is generated from: /com.nat-spec.examples.oop2014.schema/src/com/natspec/examples/oop2014/schema/formal/FormalAirlineSchema.natspec
+		// The code in this method is generated from: /com.nat-spec.examples.airline.schema/src/com/natspec/examples/oop2014/schema/formal/FormalAirlineSchema.natspec
 		// Never change this method or any contents of this file, all local changes will be overwritten.
 		// Change _NatSpecTemplate.java instead.
 		
