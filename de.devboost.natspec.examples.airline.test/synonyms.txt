@@ -1,0 +1,4 @@
+airplanetype,airplane,plane,aircraft
+passenger,traveler
+flight,travel
+a,an

@@ -1,0 +1,21 @@
+Given a plane Boing-737-600
+
+Given a flight LH-1234
+ with airplane Boing-737-600
+ with 2 free seats
+
+Given a passenger John Doe
+
+// first passenger
+Book seat for John Doe at LH-1234
+ Assume success
+
+// second passenger
+Given a passenger Jane Doe
+ Book seat for Jane Doe at LH-1234
+ Assume success
+
+// third passenger
+Given a passenger Jim Doe
+ Book seat for Jim Doe at LH-1234
+ Assume failure

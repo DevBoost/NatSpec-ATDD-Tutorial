@@ -1,0 +1,7 @@
+// All these rules must be checked before booking 
+// a flight for a passenger
+
+There needs to be a free seat for the passenger.
+There should be at least 0 free seats for overbooking issues.
+Each Passenger can only be booked once.
+//The Passenger needs to be at least 18 years old.

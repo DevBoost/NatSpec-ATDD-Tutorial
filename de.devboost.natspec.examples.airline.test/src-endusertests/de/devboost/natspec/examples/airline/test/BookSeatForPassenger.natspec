@@ -1,0 +1,15 @@
+// This scenario describes a simple booking process
+// for an exemplary passenger
+
+Given a Passenger John Doe 
+
+Given an Airplane Boing-787
+
+Given a flight LH-1234 
+ With airplane Boing-787
+ With 200 free seats
+
+Book seat for John Doe at LH-1234
+
+Assume success
+

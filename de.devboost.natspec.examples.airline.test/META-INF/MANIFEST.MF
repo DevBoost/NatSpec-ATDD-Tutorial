@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: de.devboost.natspec.examples.airline.test
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: de.devboost.natspec.examples.airline,
+ de.devboost.natspec.examples.airline.services,
+ de.devboost.natspec.annotations,
+ org.junit
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7, JavaSE-1.6

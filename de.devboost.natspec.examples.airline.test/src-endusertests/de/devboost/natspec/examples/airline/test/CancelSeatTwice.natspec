@@ -1,0 +1,18 @@
+Given a plane Boing-737-600
+
+Given a flight LH-1234
+ With airplane Boing-737-600
+ With 2 free seats
+
+Given a passenger John Doe
+
+// first passenger
+Book seat for John Doe at LH-1234
+ Assume success
+
+// cancel first passenger
+Cancel seat for John Doe at LH-1234
+ Assume success
+
+Cancel seat for John Doe at LH-1234
+ Assume failure

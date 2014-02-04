@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" href="css.css" /></head><body><h1 class="title">Living Airline Documentation </h1>
+<h2 class="chapter">Booking of Seats </h2>
+<h3 class ="scenario">Story:  test/ Book Seat For Passenger</h3><div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">Given a Passenger John Doe &nbsp;</span>
+<span class="linenumber">2</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given an Airplane Boing-787&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> With 200 total seats&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline">Given a flight LH-1234 &nbsp;</span>
+<span class="linenumber">7</span><span class="codeline"> With Boing-787 airplane&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline"> With 200 free seats&nbsp;</span>
+<span class="linenumber">9</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">10</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">11</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">12</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">13</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+<div class="last_modified"> last modified:2013-05-22 08:05:15</div><h3 class ="scenario">Story:  test/ Book Seat For Passenger Twice</h3><div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">Given a Passenger John Doe&nbsp;</span>
+<span class="linenumber">2</span><span class="codeline">Given an Airplane Boing-787&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given a flight LH-1234 &nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> With Boing-787 airplane&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline"> With 200 free seats&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">7</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline"> Assume Success&nbsp;</span>
+<span class="linenumber">9</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">10</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">11</span><span class="codeline"> Assume Failure&nbsp;</span>
+
+</code></div>
+<div class="last_modified"> last modified:2013-05-21 17:05:30</div><h3 class ="scenario">Story:  test/ Overbook Seat Number</h3><div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">Given a plane Boing-737-600&nbsp;</span>
+<span class="linenumber">2</span><span class="codeline"> With 200 total Seats&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline">Given a flight LH-1234&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline"> Set Airplane to Boing-737-600&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline"> Set free seats to 2&nbsp;</span>
+<span class="linenumber">7</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline">Given a passenger John Doe&nbsp;</span>
+<span class="linenumber">9</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">10</span><span class="codeline">// first passenger&nbsp;</span>
+<span class="linenumber">11</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">12</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">13</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">14</span><span class="codeline">// second passenger&nbsp;</span>
+<span class="linenumber">15</span><span class="codeline">Given a passenger Jane Doe&nbsp;</span>
+<span class="linenumber">16</span><span class="codeline"> Book seat for Jane Doe at LH-1234&nbsp;</span>
+<span class="linenumber">17</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">18</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">19</span><span class="codeline">// third passenger&nbsp;</span>
+<span class="linenumber">20</span><span class="codeline">Given a passenger Jim Doe&nbsp;</span>
+<span class="linenumber">21</span><span class="codeline"> Book seat for Jim Doe at LH-1234&nbsp;</span>
+<span class="linenumber">22</span><span class="codeline"> Assume failure&nbsp;</span>
+
+</code></div>
+<div class="last_modified"> last modified:2013-05-21 17:05:11</div><h2 class="chapter">Cancellation of Seats </h2>
+<h3 class ="scenario">Story:  test/ Cancel Seat Twice</h3><div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">Given a plane Boing-737-600&nbsp;</span>
+<span class="linenumber">2</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given a flight LH-1234&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> Set Airplane to Boing-737-600&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline"> Set free seats to 2&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">7</span><span class="codeline">Given a passenger John Doe&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">9</span><span class="codeline">// first passenger&nbsp;</span>
+<span class="linenumber">10</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">11</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">12</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">13</span><span class="codeline">// cancel first passenger&nbsp;</span>
+<span class="linenumber">14</span><span class="codeline">Cancel seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">15</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">16</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">17</span><span class="codeline">Cancel seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">18</span><span class="codeline"> Assume failure&nbsp;</span>
+
+</code></div>
+<div class="last_modified"> last modified:2013-05-21 17:05:11</div><h3 class ="scenario">Story:  test/ Cancel And Rebook Seat</h3><div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">Given a plane Boing-737-600&nbsp;</span>
+<span class="linenumber">2</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given a flight LH-1234&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> Set Airplane to Boing-737-600&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline"> With 1 free seats&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">7</span><span class="codeline">Given a passenger John Doe&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline">Given a passenger Jane Mejer&nbsp;</span>
+<span class="linenumber">9</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">10</span><span class="codeline">// first passenger&nbsp;</span>
+<span class="linenumber">11</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">12</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">13</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">14</span><span class="codeline">// second passenger&nbsp;</span>
+<span class="linenumber">15</span><span class="codeline">Book seat for Jane Mejer at LH-1234&nbsp;</span>
+<span class="linenumber">16</span><span class="codeline"> Assume failure&nbsp;</span>
+<span class="linenumber">17</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">18</span><span class="codeline">// cancel first passenger&nbsp;</span>
+<span class="linenumber">19</span><span class="codeline">Cancel seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">20</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">21</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">22</span><span class="codeline">// rebook second passenger on now free set&nbsp;</span>
+<span class="linenumber">23</span><span class="codeline">Book seat for Jane Mejer at LH-1234&nbsp;</span>
+<span class="linenumber">24</span><span class="codeline"> Assume success&nbsp;</span>
+
+</code></div>
+<div class="last_modified"> last modified:2013-05-21 17:05:11</div>
