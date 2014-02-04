@@ -1,0 +1,153 @@
+Documentation - Arch42 Documentation for DragonFly Airline Management System (DAMS)
+
+Section - Metadata		
+	  
+	Subsection - Authors
+	
+	|---- ----------------------------------------------------------------------------- ----|
+	|-    Author           -|- 		 Affiliation        -|- E-Mail	  	                   -|
+	| Christian Wende       | DevBoost GmbH  |  christian.wende@devboost.de 	|
+	|---- ----------------------------------------------------------------------------- ----|
+
+	Subsection - Revisions
+	
+	|---- -------------------------------------------------------------------------------------- ----|
+	|-  Date      -|-  Revision           -|- 		 Author   -|- Changes	  	                    -|
+	|  01.06.2013  | 0.1                   | Christian Wende   |  initialised content                |
+	|  05.06.2013  | 0.2                   | Christian Wende   |  including modelled artifacts       |
+	|  09.06.2013  | 0.3                   | Christian Wende   |  further contents                   |
+	|  10.06.2013  | 1.0                   | Christian Wende   |  prepared version for DemoCamp      |
+	|---- -------------------------------------------------------------------------------------- ----|
+
+
+
+Section - Introduction and Goals
+
+	Paragraph
+	
+	The online airline agency DragonFly requires a software system that supports their core business cases related to planing, booking and
+	operating national and international flights. Its meant to help operations officers to manage employees, airplanes, flights, customers, and
+	bookings. Service employees should be supported in dealing with customer requests and to operate the check-in counter. Customers should be 
+	enabled to book and cancel flights on their own using the DragonFly online interface.
+	
+	DAMS is planned to replace an existing set of heterogeneous airline management systems that are currently used at DragonFly. Their functionality
+	is out-dated and they are roughly integrated. Thus, their operation is ineffective and DragonFly employees are unsatisfied with their
+	application. For a re-launch of its online booking channel DragonFly plans to replace these systems with a more integrated
+	full-service airline management system.
+	
+	Subsection - Quality Goals
+	
+	Due to the various involved stakeholders and the intended degree of automation through customer-self-service the DragonFly Airline Management 
+	System (DAMS) needs to meet highest quality standards. DAMS constitutes the backbone of the DragonFly business model that aims to combine 
+	List
+	* optimal operative efficiency 
+	* highest customer satisfaction, 
+	* a healthy company culture, and 
+	in the highly competitive market for online airlines.
+	
+	Subsection - Stakeholders
+	
+	Paragraph
+	|---- ------------------------------------------------------------------------------------------------------------------------------------- ----|
+	|-    Name                         -|- 		 Description  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	   -|
+	| DragonFly Operations Officers     | responsible for staffing, inventory management, operative planning									    |
+	| DragonFly Service Employees	    | responsible for customers support and check-in operations                                          	  	|
+	| DragonFly Customers		        | responsible for booking and canceling flights in terms of  a customer self service        	  	  	    |
+	|---- ------------------------------------------------------------------------------------------------------------------------------------- ----|
+	
+	
+Section - Constraints
+
+	Subsection - Architecture Constraints
+	
+	List
+	* Due to very different requirements and responsibilities of each stakeholder, a custom client interface for each is required 
+	* All client interfaces need to be realised as online applications that run on current operation systems and the commonly used web browser
+	* The system is meant to operate worldwide and needs to be capable of handling and synchronise concurrent access to all data records
+	* Internal management data (used by DragonFly employees) needs to be physically separated from data that is accessible for customers
+	* All data is business critical	and needs to be stored redundantly
+	* The server back-end needs to be scalable to handle numerous distributed clients
+	
+	Subsection - Technical Constraints
+
+	List
+	* The server needs be implemented using JEE7 technologies and the open-source JEE web-server Tomcat
+	* The clients needs to be implemented as a JEE web application
+	* The database back-end is meant to be based on the open-source database MySQL
+
+	Subsection - Conventions
+	
+	List
+	* The functionality and validity of all business functions, of the clients and the server need to be verified using automated tests
+	* Developers Documentation should be provided and refined continuously using the arch24 Documentation template
+	* Users Documentation for each stakeholders client needs to provided and continuously updated for all client functions
+	* Implementation should follow the Java Sun Coding Conventions
+	
+Section - System Scope and Context
+
+	Subsection - Business Context
+	
+	The DAMS System needs to contribute both 
+	List 
+	* a business software solution used by DragonFly employees and
+	* a B2C client exposing online flight booking services for DragonFly customers
+
+	
+	Subsection - Technical Context
+	
+	For the introduction of DASM a stepwise transition form the previous systems is planned. To enable an easy integration
+	and stepwise transition DAMS has to provide interfaces to the existing legacy databases and management systems, that 
+	can later be deactivated when the transition is finished.
+	
+	Subsection - External Interfaces
+	
+	Interfaces to legacy systems
+	List
+	* DragonFly Employee Manager
+	* DragonFly Check-in Counter
+	* DragenFly Asset Management Solution
+	
+	Other interfaces
+	List
+	* Interfaces to online price portals
+	* Interface to business performance analysis tool
+
+
+	
+// Section - Solution Strategy 
+
+Section - Components View
+
+	Subsection - Level I
+		
+		The overall architecture of DAMS is organised in 3 layers. The lower most layer contributes the database layer that
+		holds and manages all persistent data for DAMS. The middle layer constitutes a set of enterprise service components that
+		implement all business services for the B2B and B2C functions of DAMS. In the upper most layer three DAMS clients are
+		implemented as online applications that run on all common web browsers.
+			
+Section - Detailed Design
+	
+	Subsection - Business Rules
+		
+		Subsubsection - Rules for the Booking Service
+		
+			Rules - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.services/model/de/devboost/natspec/examples/airline/services/validator/BookingValidation.natspec
+
+Section - User Stories
+
+	Subsection - User Stories for Booking
+	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/BookSeatForPassenger.natspec
+	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/BookSeatForPassengerTwice.natspec
+	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/OverbookSeatNumber.natspec
+	
+	Subsection - User Stories for Canceling
+	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/CancelAndRebookSeat.natspec
+	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/CancelSeatTwice.natspec
+	
+Section - Design Decisions
+
+	Should be documented and refined during implementation
+
+// Section - Risks
+	
+// Section - Glossary

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NatSpec Lean Modelling
+Bundle-SymbolicName: de.devboost.natspc.examples.airline.modelling
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ de.devboost.natspec.annotations,
+ de.devboost.natspec.library.documentation

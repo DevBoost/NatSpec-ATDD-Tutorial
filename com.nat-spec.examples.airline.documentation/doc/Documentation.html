@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:200,400' rel='stylesheet' type='text/css'/>
+<link rel="stylesheet" href="css.css" />
+</head>
+<body>
+<h1 class="title">Arch42 Documentation for DragonFly Airline Management System (DAMS) </h1>
+<div class="divFooter">UNCLASSIFIED</div>
+<div class="page-break"></div>
+<h2>Outline</h2><a class="outline_section_reference" href="#1">1 Metadata</a></br>
+<a class="outline_subsection_reference" href="#1.1">1.1 Authors</a></br>
+<a class="outline_subsection_reference" href="#1.2">1.2 Revisions</a></br>
+<a class="outline_section_reference" href="#2">2 Introduction and Goals</a></br>
+<a class="outline_subsection_reference" href="#2.1">2.1 Quality Goals</a></br>
+<a class="outline_subsection_reference" href="#2.2">2.2 Stakeholders</a></br>
+<a class="outline_section_reference" href="#3">3 Constraints</a></br>
+<a class="outline_subsection_reference" href="#3.1">3.1 Architecture Constraints</a></br>
+<a class="outline_subsection_reference" href="#3.2">3.2 Technical Constraints</a></br>
+<a class="outline_subsection_reference" href="#3.3">3.3 Conventions</a></br>
+<a class="outline_section_reference" href="#4">4 System Scope and Context</a></br>
+<a class="outline_subsection_reference" href="#4.1">4.1 Business Context</a></br>
+<a class="outline_subsection_reference" href="#4.2">4.2 Technical Context</a></br>
+<a class="outline_subsection_reference" href="#4.3">4.3 External Interfaces</a></br>
+<a class="outline_section_reference" href="#5">5 Components View</a></br>
+<a class="outline_subsection_reference" href="#5.1">5.1 Level I</a></br>
+<a class="outline_section_reference" href="#6">6 Detailed Design</a></br>
+<a class="outline_subsection_reference" href="#6.1">6.1 Business Rules</a></br>
+<a class="outline_subsubsection_reference" href="#6.1.1">6.1.1 Rules for the Booking Service</a></br>
+<a class="outline_section_reference" href="#7">7 User Stories</a></br>
+<a class="outline_subsection_reference" href="#7.1">7.1 User Stories for Booking</a></br>
+<a class="outline_subsection_reference" href="#7.2">7.2 User Stories for Canceling</a></br>
+<a class="outline_section_reference" href="#8">8 Design Decisions</a></br>
+
+<div class="page-break"></div>
+
+<div class="page-break"></div>
+<h2 id="1" class="section">1 Metadata		 </h2>
+<h3 id="1.1" class="subsection">1.1 Authors </h3>
+<table><tr><th>Author</th><th>Affiliation</th><th> E-Mail	 </th></tr>
+<tr><td>Christian Wende</td><td>DevBoost GmbH</td><td> christian.wende@devboost.de</td></tr>
+</table>
+<h3 id="1.2" class="subsection">1.2 Revisions </h3>
+<table><tr><th>Date</th><th>Revision</th><th>Author</th><th> Changes	 </th></tr>
+<tr><td>01.06.2013</td><td>0.1</td><td>Christian Wende</td><td> initialised content</td></tr>
+<tr><td>05.06.2013</td><td>0.2</td><td>Christian Wende</td><td> including modelled artifacts</td></tr>
+<tr><td>09.06.2013</td><td>0.3</td><td>Christian Wende</td><td> further contents</td></tr>
+<tr><td>10.06.2013</td><td>1.0</td><td>Christian Wende</td><td> prepared version for DemoCamp</td></tr>
+</table>
+
+<div class="page-break"></div>
+<h2 id="2" class="section">2 Introduction and Goals </h2>
+<p>
+The online airline agency DragonFly requires a software system that supports their core business cases related to planing, booking and operating national and international flights. Its meant to help operations officers to manage employees, airplanes, flights, customers, and bookings. Service employees should be supported in dealing with customer requests and to operate the check-in counter. Customers should be enabled to book and cancel flights on their own using the DragonFly online interface. DAMS is planned to replace an existing set of heterogeneous airline management systems that are currently used at DragonFly. Their functionality is out-dated and they are roughly integrated. Thus, their operation is ineffective and DragonFly employees are unsatisfied with their application. For a re-launch of its online booking channel DragonFly plans to replace these systems with a more integrated full-service airline management system. </p>
+<h3 id="2.1" class="subsection">2.1 Quality Goals </h3>
+Due to the various involved stakeholders and the intended degree of automation through customer-self-service the DragonFly Airline Management System (DAMS) needs to meet highest quality standards. DAMS constitutes the backbone of the DragonFly business model that aims to combine <ul>
+<li>optimal operative efficiency </li>
+<li>highest customer satisfaction, </li>
+<li>a healthy company culture, and </li>
+</ul>
+<h3 id="2.2" class="subsection">2.2 Stakeholders </h3>
+<p>
+<table><tr><th>Name</th><th>  Description                     </th></tr>
+<tr><td>DragonFly Operations Officers</td><td> responsible for staffing, inventory management, operative planning									</td></tr>
+<tr><td>DragonFly Service Employees</td><td> responsible for customers support and check-in operations </td></tr>
+<tr><td>DragonFly Customers</td><td> responsible for booking and canceling flights in terms of a customer self service   </td></tr>
+</table>
+</p>
+
+<div class="page-break"></div>
+<h2 id="3" class="section">3 Constraints </h2>
+<h3 id="3.1" class="subsection">3.1 Architecture Constraints </h3>
+<ul>
+<li>Due to very different requirements and responsibilities of each stakeholder, a custom client interface for each is required </li>
+<li>All client interfaces need to be realised as online applications that run on current operation systems and the commonly used web browser </li>
+<li>The system is meant to operate worldwide and needs to be capable of handling and synchronise concurrent access to all data records </li>
+<li>Internal management data (used by DragonFly employees) needs to be physically separated from data that is accessible for customers </li>
+<li>All data is business critical	and needs to be stored redundantly </li>
+<li>The server back-end needs to be scalable to handle numerous distributed clients </li>
+</ul>
+<h3 id="3.2" class="subsection">3.2 Technical Constraints </h3>
+<ul>
+<li>The server needs be implemented using JEE7 technologies and the open-source JEE web-server Tomcat </li>
+<li>The clients needs to be implemented as a JEE web application </li>
+<li>The database back-end is meant to be based on the open-source database MySQL </li>
+</ul>
+<h3 id="3.3" class="subsection">3.3 Conventions </h3>
+<ul>
+<li>The functionality and validity of all business functions, of the clients and the server need to be verified using automated tests </li>
+<li>Developers Documentation should be provided and refined continuously using the arch24 Documentation template </li>
+<li>Users Documentation for each stakeholders client needs to provided and continuously updated for all client functions </li>
+<li>Implementation should follow the Java Sun Coding Conventions </li>
+</ul>
+
+<div class="page-break"></div>
+<h2 id="4" class="section">4 System Scope and Context </h2>
+<h3 id="4.1" class="subsection">4.1 Business Context </h3>
+The DAMS System needs to contribute both <ul>
+<li>a business software solution used by DragonFly employees and </li>
+<li>a B2C client exposing online flight booking services for DragonFly customers </li>
+</ul>
+<h3 id="4.2" class="subsection">4.2 Technical Context </h3>
+For the introduction of DASM a stepwise transition form the previous systems is planned. To enable an easy integration and stepwise transition DAMS has to provide interfaces to the existing legacy databases and management systems, that can later be deactivated when the transition is finished. <h3 id="4.3" class="subsection">4.3 External Interfaces </h3>
+Interfaces to legacy systems <ul>
+<li>DragonFly Employee Manager </li>
+<li>DragonFly Check-in Counter </li>
+<li>DragenFly Asset Management Solution </li>
+</ul>
+
+<div class="page-break"></div>
+<h2 id="5" class="section">5 Components View </h2>
+<h3 id="5.1" class="subsection">5.1 Level I </h3>
+The overall architecture of DAMS is organised in 3 layers. The lower most layer contributes the database layer that holds and manages all persistent data for DAMS. The middle layer constitutes a set of enterprise service components that implement all business services for the B2B and B2C functions of DAMS. In the upper most layer three DAMS clients are implemented as online applications that run on all common web browsers. 
+<div class="page-break"></div>
+<h2 id="6" class="section">6 Detailed Design </h2>
+<h3 id="6.1" class="subsection">6.1 Business Rules </h3>
+<h3 id="6.1.1" class="subsubsection">6.1.1 Rules for the Booking Service </h3></a>
+
+<div class="page-break"></div>
+<h2 id="7" class="section">7 User Stories </h2>
+<h3 id="7.1" class="subsection">7.1 User Stories for Booking </h3>
+<h3 id="7.2" class="subsection">7.2 User Stories for Canceling </h3>
+
+<div class="page-break"></div>
+<h2 id="8" class="section">8 Design Decisions </h2>
+Should be documented and refined during implementation 
+<div class="page-break"></div>
