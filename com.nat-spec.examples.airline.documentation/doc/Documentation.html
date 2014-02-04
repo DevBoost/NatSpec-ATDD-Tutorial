@@ -116,11 +116,142 @@ The overall architecture of DAMS is organised in 3 layers. The lower most layer 
 <h2 id="6" class="section">6 Detailed Design </h2>
 <h3 id="6.1" class="subsection">6.1 Business Rules </h3>
 <h3 id="6.1.1" class="subsubsection">6.1.1 Rules for the Booking Service </h3></a>
+<h3 class ="scenario">Rules:  Booking Validation</h3> All these rules must be checked before booking  a flight for a passenger<div class="code"><code class="natspec_code">
+<span class="codeline">&nbsp;</span>
+<span class="codeline">There needs to be a free seat for the passenger.&nbsp;</span>
+<span class="codeline">There should be at least 0 free seats for overbooking issues.&nbsp;</span>
+<span class="codeline">Each Passenger can only be booked once.&nbsp;</span>
 
+</code></div>
+The Passenger needs to be at least 18 years old.
 <div class="page-break"></div>
 <h2 id="7" class="section">7 User Stories </h2>
 <h3 id="7.1" class="subsection">7.1 User Stories for Booking </h3>
+<h3 class ="scenario">Story:  Book Seat For Passenger</h3> This scenario describes a simple booking process for an exemplary passenger<div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">2</span><span class="codeline">Given a Passenger John Doe &nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline">Given an Airplane Boing-787&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline">Given a flight LH-1234 &nbsp;</span>
+<span class="linenumber">7</span><span class="codeline"> With airplane Boing-787&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline"> With 200 free seats&nbsp;</span>
+<span class="linenumber">9</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">10</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">11</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">12</span><span class="codeline">Assume success&nbsp;</span>
+<span class="linenumber">13</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+<h3 class ="scenario">Story:  Book Seat For Passenger Twice</h3> This scenario describes an erroneous booking example where the same passenger is booked twice for one flight<div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">2</span><span class="codeline">Given a Passenger John Doe&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given an Airplane Boing-787&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline">Given a flight LH-1234 &nbsp;</span>
+<span class="linenumber">5</span><span class="codeline"> With airplane Boing-787&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline"> With 200 free seats&nbsp;</span>
+<span class="linenumber">7</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">9</span><span class="codeline"> Assume Success&nbsp;</span>
+<span class="linenumber">10</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ Second booking for the same passenger should fail<div class="code"><code class="natspec_code">
+<span class="linenumber">11</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">12</span><span class="codeline"> Assume failure&nbsp;</span>
+
+</code></div>
+<h3 class ="scenario">Story:  Overbook Seat Number</h3><div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">Given a plane Boing-737-600&nbsp;</span>
+<span class="linenumber">2</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given a flight LH-1234&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> with airplane Boing-737-600&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline"> with 2 free seats&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">7</span><span class="codeline">Given a passenger John Doe&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ first passenger<div class="code"><code class="natspec_code">
+<span class="linenumber">9</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">10</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">11</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ second passenger<div class="code"><code class="natspec_code">
+<span class="linenumber">12</span><span class="codeline">Given a passenger Jane Doe&nbsp;</span>
+<span class="linenumber">13</span><span class="codeline"> Book seat for Jane Doe at LH-1234&nbsp;</span>
+<span class="linenumber">14</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">15</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ third passenger<div class="code"><code class="natspec_code">
+<span class="linenumber">16</span><span class="codeline">Given a passenger Jim Doe&nbsp;</span>
+<span class="linenumber">17</span><span class="codeline"> Book seat for Jim Doe at LH-1234&nbsp;</span>
+<span class="linenumber">18</span><span class="codeline"> Assume failure&nbsp;</span>
+
+</code></div>
 <h3 id="7.2" class="subsection">7.2 User Stories for Canceling </h3>
+<h3 class ="scenario">Story:  Cancel And Rebook Seat</h3><div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">Given a plane Boing-737-600&nbsp;</span>
+<span class="linenumber">2</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given a flight LH-1234&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> With airplane Boing-737-600&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline"> With 1 free seats&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">7</span><span class="codeline">Given a passenger John Doe&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline">Given a passenger Jane Mejer&nbsp;</span>
+<span class="linenumber">9</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ first passenger<div class="code"><code class="natspec_code">
+<span class="linenumber">10</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">11</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">12</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ second passenger<div class="code"><code class="natspec_code">
+<span class="linenumber">13</span><span class="codeline">Book seat for Jane Mejer at LH-1234&nbsp;</span>
+<span class="linenumber">14</span><span class="codeline"> Assume failure&nbsp;</span>
+<span class="linenumber">15</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ cancel first passenger<div class="code"><code class="natspec_code">
+<span class="linenumber">16</span><span class="codeline">Cancel seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">17</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">18</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ rebook second passenger on now free set<div class="code"><code class="natspec_code">
+<span class="linenumber">19</span><span class="codeline">Book seat for Jane Mejer at LH-1234&nbsp;</span>
+<span class="linenumber">20</span><span class="codeline"> Assume success&nbsp;</span>
+
+</code></div>
+<h3 class ="scenario">Story:  Cancel Seat Twice</h3><div class="code"><code class="natspec_code">
+<span class="linenumber">1</span><span class="codeline">Given a plane Boing-737-600&nbsp;</span>
+<span class="linenumber">2</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given a flight LH-1234&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> With airplane Boing-737-600&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline"> With 2 free seats&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">7</span><span class="codeline">Given a passenger John Doe&nbsp;</span>
+<span class="linenumber">8</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ first passenger<div class="code"><code class="natspec_code">
+<span class="linenumber">9</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">10</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">11</span><span class="codeline">&nbsp;</span>
+
+</code></div>
+ cancel first passenger<div class="code"><code class="natspec_code">
+<span class="linenumber">12</span><span class="codeline">Cancel seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">13</span><span class="codeline"> Assume success&nbsp;</span>
+<span class="linenumber">14</span><span class="codeline">&nbsp;</span>
+<span class="linenumber">15</span><span class="codeline">Cancel seat for John Doe at LH-1234&nbsp;</span>
+<span class="linenumber">16</span><span class="codeline"> Assume failure&nbsp;</span>
+
+</code></div>
 
 <div class="page-break"></div>
 <h2 id="8" class="section">8 Design Decisions </h2>

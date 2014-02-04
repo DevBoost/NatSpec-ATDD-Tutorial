@@ -131,18 +131,18 @@ Section - Detailed Design
 		
 		Subsubsection - Rules for the Booking Service
 		
-			Rules - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.services/model/de/devboost/natspec/examples/airline/services/validator/BookingValidation.natspec
+			Rules - ../com.nat-spec.examples.airline.services/model/com/nat_spec/examples/airline/services/validator/BookingValidation.natspec
 
 Section - User Stories
 
 	Subsection - User Stories for Booking
-	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/BookSeatForPassenger.natspec
-	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/BookSeatForPassengerTwice.natspec
-	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/OverbookSeatNumber.natspec
+	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatForPassenger.natspec
+	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatForPassengerTwice.natspec
+	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/OverbookSeatNumber.natspec
 	
 	Subsection - User Stories for Canceling
-	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/CancelAndRebookSeat.natspec
-	Story - ../../../NatSpec/de.devboost.natspec.toolproduct/workspace/de.devboost.natspec.examples.airline.test/src-endusertests/de/devboost/natspec/examples/airline/test/CancelSeatTwice.natspec
+	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/CancelAndRebookSeat.natspec
+	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/CancelSeatTwice.natspec
 	
 Section - Design Decisions
 
