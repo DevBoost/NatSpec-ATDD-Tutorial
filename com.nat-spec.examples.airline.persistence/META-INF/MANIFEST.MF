@@ -3,6 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Airline
 Bundle-SymbolicName: com.nat-spec.examples.airline.persistence
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7, JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.nat_spec.examples.airline.persistence,
  com.nat_spec.examples.airline.persistence.entity
