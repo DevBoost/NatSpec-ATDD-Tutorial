@@ -1,5 +1,7 @@
 package com.nat_spec.examples.airline.test;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 
 import com.nat_spec.examples.airline.persistence.InMemoryPersistenceContext;
@@ -28,12 +30,7 @@ public class TestSupport {
 		passenger.setAge(age);
 	}
 
-	@TextSyntax("Assume success")
-	public void assumeSuccess(OperationStatus status) {
-		Assert.assertTrue(status.toString(), status.isValid());
-	}
-
-	@TextSyntax("Assume failure")
+	@TextSyntax("Assume no valid ticket is issued")
 	public void assumeFailure(OperationStatus status) {
 		Assert.assertFalse(status.toString(), status.isValid());
 	}
@@ -68,7 +65,7 @@ public class TestSupport {
 		return persistenceContext.createFlight(flightName);
 	}
 
-	@TextSyntax("With airplane #1")
+	@TextSyntax("that is executed using a #1")
 	public void withAirplane(AirplaneType airplaneType, Flight flight) {
 		flight.setAirplane(airplaneType);
 		persistenceContext.update(flight);
@@ -80,4 +77,13 @@ public class TestSupport {
 		persistenceContext.update(flight);
 	}
 
+	@TextSyntax("Assume a valid ticket is issued")
+	public void assumeAValidTicketIsIssued(OperationStatus status) {
+		assertTrue(status.getMessage(), status.isValid());
+	}
+
+	@TextSyntax("Assume cancellation successful")
+	public void assumeCancellationSuccessful(OperationStatus status) {
+		assertTrue(status.getMessage(), status.isValid());
+	}
 }

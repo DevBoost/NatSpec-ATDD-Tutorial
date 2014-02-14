@@ -36,7 +36,7 @@ public class CodeGenerator {
 		code.append("package " + packageName + ";\n");
 		code.append("\n");
 		code.append("import org.eclipse.swt.SWT;\n");
-		code.append("import org.eclipse.swt.layout.GridLayout;\n");
+		code.append("import org.eclipse.swt.layout.*;\n");
 		code.append("import org.eclipse.swt.widgets.*;\n");
 		code.append("import org.eclipse.swt.events.*;\n");
 		code.append("\n");
@@ -52,7 +52,7 @@ public class CodeGenerator {
 		for (FormElement formElement : formElements) {
 			code.append(addFormElement(formElement));
 		}
-
+		code.append("\t\tnew Label(shell, SWT.NONE);\n");
 		code.append("\t\tButton sendFormButton = new Button(shell, SWT.NONE);\n");
 		code.append("\t\tsendFormButton.setText(\"Send form\");\n");
 		code.append("\t\tsendFormButton.addSelectionListener(new SelectionListener() {\n");
@@ -71,6 +71,7 @@ public class CodeGenerator {
 		code.append("\t\tshell.setSize(220, 120);\n");
 		code.append("\t\tshell.pack();\n");
 		code.append("\t\tshell.open();\n");
+		code.append("\t\tshell.getChildren()[1].setFocus();\n");
 		code.append("\t\twhile (!shell.isDisposed()) {\n");
 		code.append("\t\t\tif (!display.readAndDispatch()) {\n");
 		code.append("\t\t\t\tdisplay.sleep();\n");
@@ -94,7 +95,11 @@ public class CodeGenerator {
 		if (formElement instanceof EmailField) {
 			code.append("\t\tLabel label" + id + " = new Label(shell, SWT.NONE);\n");
 			code.append("\t\tlabel" + id + ".setText(\"Please enter your email address:\");\n");
-			code.append("\t\tnew Text(shell, SWT.NONE);\n");
+			code.append("\t\tText text" + id + " = new Text(shell, SWT.BORDER);\n");
+			code.append("\t\tGridData data = new GridData();       \n");
+			code.append("\t\tdata.horizontalAlignment = SWT.FILL;  \n");
+			code.append("\t\tdata.grabExcessHorizontalSpace = true;\n");
+			code.append("\t\ttext" + id + ".setLayoutData(data);             \n");
 		}
 		if (formElement instanceof OptionSet) {
 			code.append("\t\tLabel label" + id + " = new Label(shell, SWT.NONE);\n");

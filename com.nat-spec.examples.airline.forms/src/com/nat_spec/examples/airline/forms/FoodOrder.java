@@ -16,8 +16,6 @@ public class FoodOrder {
 		formSupport.addOption(java.util.Arrays.asList(new java.lang.String[] {"Hamburger"}), optionSet_);
 		// - Cheeseburger
 		formSupport.addOption(java.util.Arrays.asList(new java.lang.String[] {"Cheeseburger"}), optionSet_);
-		// - Garden Salad
-		formSupport.addOption(java.util.Arrays.asList(new java.lang.String[] {"Garden", "Salad"}), optionSet_);
 		// Ask user: Would you like french fries with that?
 		formSupport.askWouldYouLikeFrenchFriesWithThat(java.util.Arrays.asList(new java.lang.String[] {"Would", "you", "like", "french", "fries", "with", "that?"}));
 		// Ask user: Do you collect bonus points?

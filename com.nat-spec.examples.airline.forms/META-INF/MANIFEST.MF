@@ -6,6 +6,5 @@ Bundle-Version: 1.0.0.qualifier
 Export-Package: com.nat_spec.examples.airline.forms.codegen,
  com.nat_spec.examples.airline.forms.elements
 Require-Bundle: de.devboost.natspec.annotations,
- com.google.guava_15_0,
  org.eclipse.swt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -2,14 +2,13 @@
 // for an exemplary passenger
 
 Given a Passenger John Doe 
-
 Given an Airplane Boing-787
 
 Given a flight LH-1234 
- With airplane Boing-787
+ that is executed using a Boing-787
  With 200 free seats
 
 Book seat for John Doe at LH-1234
 
-Assume success
+Assume a valid ticket is issued
 

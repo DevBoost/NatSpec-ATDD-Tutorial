@@ -3,7 +3,6 @@ package com.nat_spec.examples.airline.forms;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.common.base.Joiner;
 import com.nat_spec.examples.airline.forms.elements.EmailField;
 import com.nat_spec.examples.airline.forms.elements.FormElement;
 import com.nat_spec.examples.airline.forms.elements.Option;
@@ -48,6 +47,10 @@ public class FormSupport {
 	}
 
 	private String join(List<String> parts) {
-		return Joiner.on(" ").join(parts);
+		StringBuilder builder = new StringBuilder();
+		for (String part : parts) {
+			builder.append(part + " ");
+		}
+		return builder.toString();
 	}
 }

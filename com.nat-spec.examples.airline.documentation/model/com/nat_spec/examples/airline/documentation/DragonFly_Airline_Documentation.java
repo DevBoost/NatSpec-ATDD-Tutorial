@@ -200,16 +200,16 @@ public class DragonFly_Airline_Documentation {
 		de.devboost.natspec.library.documentation.Subsection subsection_Business_Rules = documentationSupport.addSubsection(java.util.Arrays.asList(new java.lang.String[] {"Business", "Rules"}), section_Detailed_Design);
 		// Subsubsection - Rules for the Booking Service
 		de.devboost.natspec.library.documentation.Subsubsection subsubsection_Rules_for_the_Booking_Service = documentationSupport.addSubsubsection(java.util.Arrays.asList(new java.lang.String[] {"Rules", "for", "the", "Booking", "Service"}), subsection_Business_Rules);
-		// Rules - ../com.nat-spec.examples.airline.services/model/com/nat_spec/examples/airline/services/validator/BookingValidation.natspec
-		documentationSupport.addRules("../com.nat-spec.examples.airline.services/model/com/nat_spec/examples/airline/services/validator/BookingValidation.natspec", subsubsection_Rules_for_the_Booking_Service);
+		// Rules - ../com.nat-spec.examples.airline.services/model/com/nat_spec/examples/airline/services/validator/BookingValidationRules.natspec
+		documentationSupport.addRules("../com.nat-spec.examples.airline.services/model/com/nat_spec/examples/airline/services/validator/BookingValidationRules.natspec", subsubsection_Rules_for_the_Booking_Service);
 		// Section - User Stories
 		de.devboost.natspec.library.documentation.Section section_User_Stories = documentationSupport.addSection(java.util.Arrays.asList(new java.lang.String[] {"User", "Stories"}), documentation_Arch42_Documentation_for_DragonFly_Airline_Management_System__DAMS_);
 		// Subsection - User Stories for Booking
 		de.devboost.natspec.library.documentation.Subsection subsection_User_Stories_for_Booking = documentationSupport.addSubsection(java.util.Arrays.asList(new java.lang.String[] {"User", "Stories", "for", "Booking"}), section_User_Stories);
-		// Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatForPassenger.natspec
-		documentationSupport.addStory("../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatForPassenger.natspec", subsection_User_Stories_for_Booking);
-		// Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatForPassengerTwice.natspec
-		documentationSupport.addStory("../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatForPassengerTwice.natspec", subsection_User_Stories_for_Booking);
+		// Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeat.natspec
+		documentationSupport.addStory("../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeat.natspec", subsection_User_Stories_for_Booking);
+		// Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatTwice.natspec
+		documentationSupport.addStory("../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatTwice.natspec", subsection_User_Stories_for_Booking);
 		// Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/OverbookSeatNumber.natspec
 		documentationSupport.addStory("../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/OverbookSeatNumber.natspec", subsection_User_Stories_for_Booking);
 		// Subsection - User Stories for Canceling

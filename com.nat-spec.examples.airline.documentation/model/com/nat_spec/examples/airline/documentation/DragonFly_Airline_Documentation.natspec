@@ -131,13 +131,13 @@ Section - Detailed Design
 		
 		Subsubsection - Rules for the Booking Service
 		
-			Rules - ../com.nat-spec.examples.airline.services/model/com/nat_spec/examples/airline/services/validator/BookingValidation.natspec
+			Rules - ../com.nat-spec.examples.airline.services/model/com/nat_spec/examples/airline/services/validator/BookingValidationRules.natspec
 
 Section - User Stories
 
 	Subsection - User Stories for Booking
-	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatForPassenger.natspec
-	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatForPassengerTwice.natspec
+	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeat.natspec
+	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/BookSeatTwice.natspec
 	Story - ../com.nat-spec.examples.airline.tests/src-endusertests/com/nat_spec/examples/airline/test/OverbookSeatNumber.natspec
 	
 	Subsection - User Stories for Canceling

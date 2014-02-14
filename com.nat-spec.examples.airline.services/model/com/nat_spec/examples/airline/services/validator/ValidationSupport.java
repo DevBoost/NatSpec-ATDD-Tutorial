@@ -6,13 +6,13 @@ import com.nat_spec.examples.airline.services.OperationStatus;
 
 import de.devboost.natspec.annotations.TextSyntax;
 
-public class BookingValidationServices {
+public class ValidationSupport {
 
 	private Passenger passenger;
 	private Flight flight;
 	private OperationStatus status;
 
-	public BookingValidationServices(Flight f, Passenger p) {
+	public ValidationSupport(Flight f, Passenger p) {
 		this.flight = f;
 		this.passenger = p;
 		setStatus(new OperationStatus());
@@ -29,7 +29,6 @@ public class BookingValidationServices {
 
 	private void setStatus(OperationStatus status) {
 		this.status = status;
-
 	}
 
 	@TextSyntax("Each Passenger can only be booked once.")
@@ -39,7 +38,7 @@ public class BookingValidationServices {
 		}
 	}
 
-	@TextSyntax("There should be at least #1 free seats for overbooking issues.")
+	@TextSyntax("There should be at least #1 free seats to handle overbooking.")
 	public void checkFreeSeats(int overbookingBuffer) {
 		if (flight.getFreeSeats() < overbookingBuffer) {
 			setInvalid("There are no free seats for the flight.");
@@ -53,9 +52,8 @@ public class BookingValidationServices {
 		}
 	}
 
-
 //	@TextSyntax("The Passenger needs to be at least #1 years old.")
-//	public void checkAge(int minimalAge) {
+//	public void thePassengerNeedsToBeAtLeastYearsOld(int minimalAge) {
 //		if (passenger.getAge() < minimalAge) {
 //			setInvalid("The passenger needs to be at least " + minimalAge
 //					+ " years.");

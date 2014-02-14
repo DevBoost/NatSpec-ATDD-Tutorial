@@ -1,20 +1,20 @@
 package com.nat_spec.examples.airline.services.validator;
 
-import com.nat_spec.examples.airline.persistence.entity.*;
+import com.nat_spec.examples.airline.persistence.entity.Flight;
+import com.nat_spec.examples.airline.persistence.entity.Passenger;
 import com.nat_spec.examples.airline.services.OperationStatus;
-	
 
 public class _NatSpecTemplate {
 
-	BookingValidationServices bookingValidationServices;
+	ValidationSupport validationSupport;
 
 	public _NatSpecTemplate(Flight f, Passenger p) {
-		bookingValidationServices = new BookingValidationServices(f, p);
+		validationSupport = new ValidationSupport(f, p);
 	}
 
-	public OperationStatus validateBooking() {
+	public OperationStatus validate() {
 		/* @MethodBody */
-		return bookingValidationServices.getStatus();
+		return validationSupport.getStatus();
 	}
-	
+
 }

@@ -22,7 +22,7 @@ public class SQLCodeGenerator {
 				code.append("\n");
 			}
 		}
-		code.append(");\n");
+		code.append("\n);\n\n");
 		return code.toString();
 	}
 }
