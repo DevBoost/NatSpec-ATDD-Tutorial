@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Flight extends NamedEntity {
 
-	private int freeSeats;
+	private int freeSeats = 0;
 	private AirplaneType airplane;
 	private List<Integer> passengerIds = new LinkedList<Integer>();
 

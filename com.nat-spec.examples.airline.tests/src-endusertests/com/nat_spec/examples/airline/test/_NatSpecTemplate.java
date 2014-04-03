@@ -14,10 +14,8 @@ public class _NatSpecTemplate {
 	private TestSupport testSupport;
 	private InMemoryPersistenceContext persistenceContext;
 
-	@SuppressWarnings("unused")
 	@Test
 	public void executeScript() throws Exception {
-		int result;
 		/* @MethodBody */
 	}
 

@@ -16,14 +16,14 @@ public class FoodOrderForm {
 		Label label1 = new Label(shell, SWT.NONE);
 		label1.setText("Please select one of the following:");
 		Combo combo1 = new Combo(shell, SWT.DROP_DOWN);
-		combo1.setItems(new String[] {"Hamburger", "Cheeseburger", });
+		combo1.setItems(new String[] {"Hamburger ", "Cheeseburger ", });
 		combo1.select(0);
 		Label label4 = new Label(shell, SWT.NONE);
-		label4.setText("Would you like french fries with that?");
+		label4.setText("Would you like french fries with that? ");
 		Button button4 = new Button(shell, SWT.CHECK);
 		button4.setText("Yes");
 		Label label5 = new Label(shell, SWT.NONE);
-		label5.setText("Do you collect bonus points?");
+		label5.setText("Do you collect bonus points? ");
 		Button button5 = new Button(shell, SWT.CHECK);
 		button5.setText("Yes");
 		Label label6 = new Label(shell, SWT.NONE);

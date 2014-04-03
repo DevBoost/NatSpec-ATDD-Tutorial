@@ -35,13 +35,13 @@ public class LessFormalSchemaSupport extends AbstractSchemaSupport {
 		if (propertyName.equals("name") || propertyName.equals("type")) {
 			return "VARCHAR(255)";
 		}
-		if (propertyName.equals("seatCount")) {
+		if (propertyName.equals("seat_count")) {
 			return "INT";
 		}
-		if (propertyName.equals("airplaneType")) {
+		if (propertyName.equals("airplane_type")) {
 			return "INT";
 		}
-		if (propertyName.equals("dateOfBirth")) {
+		if (propertyName.equals("date_of_birth")) {
 			return "DATETIME";
 		}
 		

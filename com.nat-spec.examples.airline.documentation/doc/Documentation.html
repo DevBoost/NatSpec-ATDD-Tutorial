@@ -123,17 +123,17 @@ The overall architecture of DAMS is organised in 3 layers. The lower most layer 
 <span class="codeline">Each Passenger can only be booked once.&nbsp;</span>
 
 </code></div>
-The Passenger needs to be at least 18 years old.
+ The Passenger needs to be at least 18 years old.
 <div class="page-break"></div>
 <h2 id="7" class="section">7 User Stories </h2>
 <h3 id="7.1" class="subsection">7.1 User Stories for Booking </h3>
 <h3 class ="scenario">Story:  Book Seat</h3> This scenario describes a simple booking process for an exemplary passenger<div class="code"><code class="natspec_code">
 <span class="linenumber">1</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">2</span><span class="codeline">Given a Passenger John Doe &nbsp;</span>
-<span class="linenumber">3</span><span class="codeline">Given an Airplane Boing-787&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given an Airplane Boeing-787&nbsp;</span>
 <span class="linenumber">4</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">5</span><span class="codeline">Given a flight LH-1234 &nbsp;</span>
-<span class="linenumber">6</span><span class="codeline"> that is executed using a Boing-787&nbsp;</span>
+<span class="linenumber">6</span><span class="codeline"> that is executed using a Boeing-787&nbsp;</span>
 <span class="linenumber">7</span><span class="codeline"> With 200 free seats&nbsp;</span>
 <span class="linenumber">8</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">9</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
@@ -145,9 +145,9 @@ The Passenger needs to be at least 18 years old.
 <h3 class ="scenario">Story:  Book Seat Twice</h3> This scenario describes an erroneous booking example where the same passenger is booked twice for one flight<div class="code"><code class="natspec_code">
 <span class="linenumber">1</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">2</span><span class="codeline">Given a Passenger John Doe&nbsp;</span>
-<span class="linenumber">3</span><span class="codeline">Given an Airplane Boing-787&nbsp;</span>
+<span class="linenumber">3</span><span class="codeline">Given an Airplane Boeing-787&nbsp;</span>
 <span class="linenumber">4</span><span class="codeline">Given a flight LH-1234 &nbsp;</span>
-<span class="linenumber">5</span><span class="codeline"> that is executed using a Boing-787&nbsp;</span>
+<span class="linenumber">5</span><span class="codeline"> that is executed using a Boeing-787&nbsp;</span>
 <span class="linenumber">6</span><span class="codeline"> With 200 free seats&nbsp;</span>
 <span class="linenumber">7</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">8</span><span class="codeline">Book seat for John Doe at LH-1234&nbsp;</span>
@@ -161,10 +161,10 @@ The Passenger needs to be at least 18 years old.
 
 </code></div>
 <h3 class ="scenario">Story:  Overbook Seat Number</h3><div class="code"><code class="natspec_code">
-<span class="linenumber">1</span><span class="codeline">Given a plane Boing-737-600&nbsp;</span>
+<span class="linenumber">1</span><span class="codeline">Given a plane Boeing-737-600&nbsp;</span>
 <span class="linenumber">2</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">3</span><span class="codeline">Given a flight LH-1234&nbsp;</span>
-<span class="linenumber">4</span><span class="codeline"> that is executed using a Boing-737-600&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> that is executed using a Boeing-737-600&nbsp;</span>
 <span class="linenumber">5</span><span class="codeline"> with 2 free seats&nbsp;</span>
 <span class="linenumber">6</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">7</span><span class="codeline">Given a passenger John Doe&nbsp;</span>
@@ -192,10 +192,10 @@ The Passenger needs to be at least 18 years old.
 </code></div>
 <h3 id="7.2" class="subsection">7.2 User Stories for Canceling </h3>
 <h3 class ="scenario">Story:  Cancel And Rebook Seat</h3><div class="code"><code class="natspec_code">
-<span class="linenumber">1</span><span class="codeline">Given a plane Boing-737-600&nbsp;</span>
+<span class="linenumber">1</span><span class="codeline">Given a plane Boeing-737-600&nbsp;</span>
 <span class="linenumber">2</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">3</span><span class="codeline">Given a flight LH-1234&nbsp;</span>
-<span class="linenumber">4</span><span class="codeline"> that is executed using a Boing-737-600&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> that is executed using a Boeing-737-600&nbsp;</span>
 <span class="linenumber">5</span><span class="codeline"> With 1 free seats&nbsp;</span>
 <span class="linenumber">6</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">7</span><span class="codeline">Given a passenger John Doe&nbsp;</span>
@@ -227,10 +227,10 @@ The Passenger needs to be at least 18 years old.
 
 </code></div>
 <h3 class ="scenario">Story:  Cancel Seat Twice</h3><div class="code"><code class="natspec_code">
-<span class="linenumber">1</span><span class="codeline">Given a plane Boing-737-600&nbsp;</span>
+<span class="linenumber">1</span><span class="codeline">Given a plane Boeing-737-600&nbsp;</span>
 <span class="linenumber">2</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">3</span><span class="codeline">Given a flight LH-1234&nbsp;</span>
-<span class="linenumber">4</span><span class="codeline"> that is executed using a Boing-737-600&nbsp;</span>
+<span class="linenumber">4</span><span class="codeline"> that is executed using a Boeing-737-600&nbsp;</span>
 <span class="linenumber">5</span><span class="codeline"> With 2 free seats&nbsp;</span>
 <span class="linenumber">6</span><span class="codeline">&nbsp;</span>
 <span class="linenumber">7</span><span class="codeline">Given a passenger John Doe&nbsp;</span>
