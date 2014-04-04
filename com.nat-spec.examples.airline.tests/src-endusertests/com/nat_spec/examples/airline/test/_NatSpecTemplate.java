@@ -3,21 +3,19 @@ package com.nat_spec.examples.airline.test;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import com.nat_spec.examples.airline.persistence.InMemoryPersistenceContext;
 import com.nat_spec.examples.airline.services.AirlineServices;
-import com.nat_spec.examples.airline.test.TestSupport;
 
-public class _NatSpecTemplate {
+import de.devboost.natspec.junit4.runner.NatSpecJUnit4Runner;
+import de.devboost.natspec.junit4.runner.NatSpecJUnit4Template;
+@RunWith(NatSpecJUnit4Runner.class)
+public class _NatSpecTemplate extends NatSpecJUnit4Template{
 
 	private AirlineServices services;
 	private TestSupport testSupport;
 	private InMemoryPersistenceContext persistenceContext;
-
-	@Test
-	public void executeScript() throws Exception {
-		/* @MethodBody */
-	}
 
 	@Before
 	public void setUp() {
@@ -32,5 +30,11 @@ public class _NatSpecTemplate {
 			testSupport = null;
 		if (persistenceContext != null)
 			persistenceContext.shutdown();
+	}
+
+	@Test
+	public void runTest() throws Exception {
+		/* @MethodBody */
+		
 	}
 }

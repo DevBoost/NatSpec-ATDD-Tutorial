@@ -6,5 +6,6 @@ Bundle-Version: 1.0.0.qualifier
 Require-Bundle: com.nat-spec.examples.airline.persistence,
  com.nat-spec.examples.airline.services,
  de.devboost.natspec.annotations,
- org.junit
+ org.junit,
+ de.devboost.natspec.junit4.runner
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
