@@ -1,5 +1,7 @@
 package com.nat_spec.examples.airline.forms;
 
+import com.nat_spec.examples.airline.forms.codegen.CodeGenerator;
+
 public class FoodOrder {
 
 	protected FormSupport formSupport = new FormSupport();
@@ -23,6 +25,10 @@ public class FoodOrder {
 		// Ask user for his email address.
 		formSupport.askUserForHisEmailAddress();
 		
+	}
+
+	public static void main(String[] args) {
+		new CodeGenerator().run();
 	}
 
 	public FormSupport getFormSupport() {
