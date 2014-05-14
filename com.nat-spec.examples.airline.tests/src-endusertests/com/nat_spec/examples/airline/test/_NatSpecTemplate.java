@@ -10,8 +10,9 @@ import com.nat_spec.examples.airline.services.AirlineServices;
 
 import de.devboost.natspec.junit4.runner.NatSpecJUnit4Runner;
 import de.devboost.natspec.junit4.runner.NatSpecJUnit4Template;
+
 @RunWith(NatSpecJUnit4Runner.class)
-public class _NatSpecTemplate extends NatSpecJUnit4Template{
+public class _NatSpecTemplate extends NatSpecJUnit4Template {
 
 	private AirlineServices services;
 	private TestSupport testSupport;
@@ -35,6 +36,5 @@ public class _NatSpecTemplate extends NatSpecJUnit4Template{
 	@Test
 	public void runTest() throws Exception {
 		/* @MethodBody */
-		
 	}
 }

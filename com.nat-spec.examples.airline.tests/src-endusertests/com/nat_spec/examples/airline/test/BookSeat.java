@@ -12,8 +12,9 @@ import com.nat_spec.examples.airline.services.AirlineServices;
 
 import de.devboost.natspec.junit4.runner.NatSpecJUnit4Runner;
 import de.devboost.natspec.junit4.runner.NatSpecJUnit4Template;
+
 @RunWith(NatSpecJUnit4Runner.class)
-public class BookSeat extends NatSpecJUnit4Template{
+public class BookSeat extends NatSpecJUnit4Template {
 
 	private AirlineServices services;
 	private TestSupport testSupport;
@@ -61,7 +62,6 @@ public class BookSeat extends NatSpecJUnit4Template{
 		// Assume a valid ticket is issued
 		log("Assume a valid ticket is issued");
 		testSupport.assumeAValidTicketIsIssued(operationStatus_John_Doe_LH_1234);
-		
 		
 	}
 
