@@ -7,6 +7,10 @@ import org.eclipse.swt.events.*;
 
 public class FoodOrderForm {
 
+	public static void main(String[] args) {
+		new FoodOrderForm().run();
+	}
+
 	public void run() {
 		final Display display = new Display();
 		Shell shell = new Shell(display);
@@ -16,23 +20,23 @@ public class FoodOrderForm {
 		Label label1 = new Label(shell, SWT.NONE);
 		label1.setText("Please select one of the following:");
 		Combo combo1 = new Combo(shell, SWT.DROP_DOWN);
-		combo1.setItems(new String[] {"Hamburger ", "Cheeseburger ", });
+		combo1.setItems(new String[] {"Hamburger ", "Cheeseburger ", "Salad ", });
 		combo1.select(0);
-		Label label4 = new Label(shell, SWT.NONE);
-		label4.setText("Would you like french fries with that? ");
-		Button button4 = new Button(shell, SWT.CHECK);
-		button4.setText("Yes");
 		Label label5 = new Label(shell, SWT.NONE);
-		label5.setText("Do you collect bonus points? ");
+		label5.setText("Would you like french fries with that? ");
 		Button button5 = new Button(shell, SWT.CHECK);
 		button5.setText("Yes");
 		Label label6 = new Label(shell, SWT.NONE);
-		label6.setText("Please enter your email address:");
-		Text text6 = new Text(shell, SWT.BORDER);
+		label6.setText("Do you collect bonus points? ");
+		Button button6 = new Button(shell, SWT.CHECK);
+		button6.setText("Yes");
+		Label label7 = new Label(shell, SWT.NONE);
+		label7.setText("Please enter your email address:");
+		Text text7 = new Text(shell, SWT.BORDER);
 		GridData data = new GridData();       
 		data.horizontalAlignment = SWT.FILL;  
 		data.grabExcessHorizontalSpace = true;
-		text6.setLayoutData(data);             
+		text7.setLayoutData(data);             
 		new Label(shell, SWT.NONE);
 		Button sendFormButton = new Button(shell, SWT.NONE);
 		sendFormButton.setText("Send form");
