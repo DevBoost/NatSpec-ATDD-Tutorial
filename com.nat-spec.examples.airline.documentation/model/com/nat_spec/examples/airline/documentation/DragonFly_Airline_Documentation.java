@@ -22,24 +22,24 @@ public class DragonFly_Airline_Documentation {
 		
 		// Documentation - Arch42 Documentation for DragonFly Airline Management System (DAMS)
 		de.devboost.natspec.library.documentation.Documentation documentation_Arch42_Documentation_for_DragonFly_Airline_Management_System__DAMS_ = documentationSupport.initDocumentation(java.util.Arrays.asList(new java.lang.String[] {"Arch42", "Documentation", "for", "DragonFly", "Airline", "Management", "System", "(DAMS)"}));
-		// Section - Metadata		
-		de.devboost.natspec.library.documentation.Section section_Metadata__ = documentationSupport.addSection(java.util.Arrays.asList(new java.lang.String[] {"Metadata\t\t"}), documentation_Arch42_Documentation_for_DragonFly_Airline_Management_System__DAMS_);
+		// Section - Metadata
+		de.devboost.natspec.library.documentation.Section section_Metadata = documentationSupport.addSection(java.util.Arrays.asList(new java.lang.String[] {"Metadata"}), documentation_Arch42_Documentation_for_DragonFly_Airline_Management_System__DAMS_);
 		// Subsection - Authors
-		de.devboost.natspec.library.documentation.Subsection subsection_Authors = documentationSupport.addSubsection(java.util.Arrays.asList(new java.lang.String[] {"Authors"}), section_Metadata__);
+		de.devboost.natspec.library.documentation.Subsection subsection_Authors = documentationSupport.addSubsection(java.util.Arrays.asList(new java.lang.String[] {"Authors"}), section_Metadata);
 		// |---- ----------------------------------------------------------------------------- ----|
 		de.devboost.natspec.library.documentation.Table table______________________________________________________________________________ = documentationSupport.createOrEndTable(java.util.Arrays.asList(new java.lang.String[] {"-----------------------------------------------------------------------------"}), subsection_Authors);
-		// |- Author -|-  Affiliation -|- E-Mail	  -|
-		documentationSupport.createTableHeader(java.util.Arrays.asList(new java.lang.String[] {"Author", "-|-", "", "Affiliation", "-|-", "E-Mail\t", ""}), table______________________________________________________________________________);
+		// |- Author -|-  Affiliation -|- E-Mail  -|
+		documentationSupport.createTableHeader(java.util.Arrays.asList(new java.lang.String[] {"Author", "-|-", "", "Affiliation", "-|-", "E-Mail", ""}), table______________________________________________________________________________);
 		// | Christian Wende | DevBoost GmbH | christian.wende@devboost.de |
 		documentationSupport.createTableRow(java.util.Arrays.asList(new java.lang.String[] {"Christian", "Wende", "|", "DevBoost", "GmbH", "|", "christian.wende@devboost.de"}), table______________________________________________________________________________);
 		// |---- ----------------------------------------------------------------------------- ----|
 		de.devboost.natspec.library.documentation.Table table______________________________________________________________________________0 = documentationSupport.createOrEndTable(java.util.Arrays.asList(new java.lang.String[] {"-----------------------------------------------------------------------------"}), subsection_Authors);
 		// Subsection - Revisions
-		de.devboost.natspec.library.documentation.Subsection subsection_Revisions = documentationSupport.addSubsection(java.util.Arrays.asList(new java.lang.String[] {"Revisions"}), section_Metadata__);
+		de.devboost.natspec.library.documentation.Subsection subsection_Revisions = documentationSupport.addSubsection(java.util.Arrays.asList(new java.lang.String[] {"Revisions"}), section_Metadata);
 		// |---- -------------------------------------------------------------------------------------- ----|
 		de.devboost.natspec.library.documentation.Table table_______________________________________________________________________________________ = documentationSupport.createOrEndTable(java.util.Arrays.asList(new java.lang.String[] {"--------------------------------------------------------------------------------------"}), subsection_Revisions);
-		// |- Date -|- Revision -|-  Author -|- Changes	  -|
-		documentationSupport.createTableHeader(java.util.Arrays.asList(new java.lang.String[] {"Date", "-|-", "Revision", "-|-", "", "Author", "-|-", "Changes\t", ""}), table_______________________________________________________________________________________);
+		// |- Date -|- Revision -|-  Author -|- Changes  -|
+		documentationSupport.createTableHeader(java.util.Arrays.asList(new java.lang.String[] {"Date", "-|-", "Revision", "-|-", "", "Author", "-|-", "Changes", ""}), table_______________________________________________________________________________________);
 		// | 01.06.2013 | 0.1 | Christian Wende | initialised content |
 		documentationSupport.createTableRow(java.util.Arrays.asList(new java.lang.String[] {"01.06.2013", "|", "0.1", "|", "Christian", "Wende", "|", "initialised", "content"}), table_______________________________________________________________________________________);
 		// | 05.06.2013 | 0.2 | Christian Wende | including modelled artifacts |
@@ -94,12 +94,12 @@ public class DragonFly_Airline_Documentation {
 		de.devboost.natspec.library.documentation.Table table______________________________________________________________________________________________________________________________________ = documentationSupport.createOrEndTable(java.util.Arrays.asList(new java.lang.String[] {"-------------------------------------------------------------------------------------------------------------------------------------"}), paragraph_0);
 		// |- Name -|-  Description                      -|
 		documentationSupport.createTableHeader(java.util.Arrays.asList(new java.lang.String[] {"Name", "-|-", "", "Description", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}), table______________________________________________________________________________________________________________________________________);
-		// | DragonFly Operations Officers | responsible for staffing, inventory management, operative planning									 |
-		documentationSupport.createTableRow(java.util.Arrays.asList(new java.lang.String[] {"DragonFly", "Operations", "Officers", "|", "responsible", "for", "staffing,", "inventory", "management,", "operative", "planning\t\t\t\t\t\t\t\t\t"}), table______________________________________________________________________________________________________________________________________);
-		// | DragonFly Service Employees	 | responsible for customers support and check-in operations  |
-		documentationSupport.createTableRow(java.util.Arrays.asList(new java.lang.String[] {"DragonFly", "Service", "Employees\t", "|", "responsible", "for", "customers", "support", "and", "check-in", "operations", ""}), table______________________________________________________________________________________________________________________________________);
-		// | DragonFly Customers		 | responsible for booking and canceling flights in terms of a customer self service    |
-		documentationSupport.createTableRow(java.util.Arrays.asList(new java.lang.String[] {"DragonFly", "Customers\t\t", "|", "responsible", "for", "booking", "and", "canceling", "flights", "in", "terms", "of", "a", "customer", "self", "service", "", "", ""}), table______________________________________________________________________________________________________________________________________);
+		// | DragonFly Operations Officers | responsible for staffing, inventory management, operative planning |
+		documentationSupport.createTableRow(java.util.Arrays.asList(new java.lang.String[] {"DragonFly", "Operations", "Officers", "|", "responsible", "for", "staffing,", "inventory", "management,", "operative", "planning"}), table______________________________________________________________________________________________________________________________________);
+		// | DragonFly Service Employees | responsible for customers support and check-in operations  |
+		documentationSupport.createTableRow(java.util.Arrays.asList(new java.lang.String[] {"DragonFly", "Service", "Employees", "|", "responsible", "for", "customers", "support", "and", "check-in", "operations", ""}), table______________________________________________________________________________________________________________________________________);
+		// | DragonFly Customers | responsible for booking and canceling flights in terms of a customer self service    |
+		documentationSupport.createTableRow(java.util.Arrays.asList(new java.lang.String[] {"DragonFly", "Customers", "|", "responsible", "for", "booking", "and", "canceling", "flights", "in", "terms", "of", "a", "customer", "self", "service", "", "", ""}), table______________________________________________________________________________________________________________________________________);
 		// |---- ------------------------------------------------------------------------------------------------------------------------------------- ----|
 		de.devboost.natspec.library.documentation.Table table______________________________________________________________________________________________________________________________________0 = documentationSupport.createOrEndTable(java.util.Arrays.asList(new java.lang.String[] {"-------------------------------------------------------------------------------------------------------------------------------------"}), paragraph_0);
 		// Section - Constraints

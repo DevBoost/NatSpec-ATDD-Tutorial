@@ -41,55 +41,50 @@ public class CancelSeatTwice extends NatSpecJUnit4Template {
 		// Never change this method or any contents of this file, all local changes will be overwritten.
 		// Change _NatSpecTemplate.java instead.
 		
-		// Given a plane Boeing-737-600
-		log("Given a plane Boeing-737-600");
-		com.nat_spec.examples.airline.persistence.entity.AirplaneType airplaneType_Boeing_737_600 = testSupport.givenAnAirplane("Boeing-737-600");
-		// Given a flight LH-1234
-		log("Given a flight LH-1234");
-		com.nat_spec.examples.airline.persistence.entity.Flight flight_LH_1234 = testSupport.givenAFlight("LH-1234");
-		// that is executed using a Boeing-737-600
-		log("that is executed using a Boeing-737-600");
-		testSupport.withAirplane(airplaneType_Boeing_737_600, flight_LH_1234);
-		// With 2 free seats
-		log("With 2 free seats");
-		testSupport.withFreeSeats(2, flight_LH_1234);
-		// Given a passenger John Doe
-		log("Given a passenger John Doe");
+		// Wenn ein Passagier John Doe
+		log("Wenn ein Passagier John Doe");
 		com.nat_spec.examples.airline.persistence.entity.Passenger passenger_John_Doe = testSupport.givenAPassenger("John", "Doe");
-		// Book seat for John Doe at LH-1234
-		log("Book seat for John Doe at LH-1234");
-		com.nat_spec.examples.airline.services.OperationStatus operationStatus_John_Doe_LH_1234 = testSupport.bookSeat(passenger_John_Doe, flight_LH_1234);
-		// Assume a valid ticket is issued
-		log("Assume a valid ticket is issued");
-		testSupport.assumeAValidTicketIsIssued(operationStatus_John_Doe_LH_1234);
-		// Cancel seat for John Doe at LH-1234
-		log("Cancel seat for John Doe at LH-1234");
+		// Für den Flug LH-1234
+		log("Für den Flug LH-1234");
+		com.nat_spec.examples.airline.persistence.entity.Flight flight_LH_1234 = testSupport.givenAFlight("LH-1234");
+		// der mit einer Boeing-737-600 ausgeführt wird
+		log("der mit einer Boeing-737-600 ausgeführt wird");
+		testSupport.withAirplane("Boeing-737-600", flight_LH_1234);
+		// und 2 freie Sitzplätze hat
+		log("und 2 freie Sitzplätze hat");
+		testSupport.withFreeSeats(2, flight_LH_1234);
+		// Einen Sitzplatz bucht
+		log("Einen Sitzplatz bucht");
+		com.nat_spec.examples.airline.services.OperationStatus operationStatus_ = testSupport.einenSitzplatzBucht(flight_LH_1234, passenger_John_Doe);
+		// Wird ein valides Ticket ausgestellt
+		log("Wird ein valides Ticket ausgestellt");
+		testSupport.assumeAValidTicketIsIssued(operationStatus_);
+		// Wenn Passagier John Doe sein Ticket für Flug LH-1234 storniert
+		log("Wenn Passagier John Doe sein Ticket für Flug LH-1234 storniert");
+		com.nat_spec.examples.airline.services.OperationStatus operationStatus_John_Doe_LH_1234 = testSupport.cancelSeat(passenger_John_Doe, flight_LH_1234);
+		// Wird die Stornierung bestätigt
+		log("Wird die Stornierung bestätigt");
+		testSupport.assumeCancellationSuccessful(true, operationStatus_John_Doe_LH_1234);
+		// Wenn Passagier John Doe sein Ticket für Flug LH-1234 storniert
+		log("Wenn Passagier John Doe sein Ticket für Flug LH-1234 storniert");
 		com.nat_spec.examples.airline.services.OperationStatus operationStatus_John_Doe_LH_12340 = testSupport.cancelSeat(passenger_John_Doe, flight_LH_1234);
-		// Assume a valid ticket is issued
-		log("Assume a valid ticket is issued");
-		testSupport.assumeAValidTicketIsIssued(operationStatus_John_Doe_LH_12340);
-		// Cancel seat for John Doe at LH-1234
-		log("Cancel seat for John Doe at LH-1234");
-		com.nat_spec.examples.airline.services.OperationStatus operationStatus_John_Doe_LH_12341 = testSupport.cancelSeat(passenger_John_Doe, flight_LH_1234);
-		// Assume no valid ticket is issued
-		log("Assume no valid ticket is issued");
-		testSupport.assumeFailure(operationStatus_John_Doe_LH_12341);
+		// Wird die Stornierung nicht bestätigt
+		log("Wird die Stornierung nicht bestätigt");
+		testSupport.assumeCancellationSuccessful(false, operationStatus_John_Doe_LH_12340);
 		
 	}
 
 	public static void createNatSpecDescription(INatSpecDefinitionHandler handler) {
-		handler.register("Given a plane Boeing-737-600");
-		handler.register("Given a flight LH-1234");
-		handler.register("that is executed using a Boeing-737-600");
-		handler.register("With 2 free seats");
-		handler.register("Given a passenger John Doe");
-		handler.registerComment("// first passenger");
-		handler.register("Book seat for John Doe at LH-1234");
-		handler.register("Assume a valid ticket is issued");
-		handler.registerComment("// cancel first passenger");
-		handler.register("Cancel seat for John Doe at LH-1234");
-		handler.register("Assume a valid ticket is issued");
-		handler.register("Cancel seat for John Doe at LH-1234");
-		handler.register("Assume no valid ticket is issued");
+		handler.register("Wenn ein Passagier John Doe");
+		handler.register("Für den Flug LH-1234");
+		handler.register("der mit einer Boeing-737-600 ausgeführt wird");
+		handler.register("und 2 freie Sitzplätze hat");
+		handler.register("Einen Sitzplatz bucht");
+		handler.register("Wird ein valides Ticket ausgestellt");
+		handler.register("Wenn Passagier John Doe sein Ticket für Flug LH-1234 storniert");
+		handler.register("Wird die Stornierung bestätigt");
+		handler.registerComment("/// Dopelstornierung wird zurückgewiesen");
+		handler.register("Wenn Passagier John Doe sein Ticket für Flug LH-1234 storniert");
+		handler.register("Wird die Stornierung nicht bestätigt");
 	}
 }

@@ -1,18 +1,13 @@
-Given a plane Boeing-737-600
+Wenn ein Passagier John Doe
+Für den Flug LH-1234
+der mit einer Boeing-737-600 ausgeführt wird
+und 2 freie Sitzplätze hat
+Einen Sitzplatz bucht
+Wird ein valides Ticket ausgestellt
 
-Given a flight LH-1234
- that is executed using a Boeing-737-600
- With 2 free seats
+Wenn Passagier John Doe sein Ticket für Flug LH-1234 storniert
+Wird die Stornierung bestätigt
 
-Given a passenger John Doe
-
-// first passenger
-Book seat for John Doe at LH-1234
- Assume a valid ticket is issued
-
-// cancel first passenger
-Cancel seat for John Doe at LH-1234
- Assume a valid ticket is issued
-
-Cancel seat for John Doe at LH-1234
- Assume no valid ticket is issued
+/// Dopelstornierung wird zurückgewiesen
+Wenn Passagier John Doe sein Ticket für Flug LH-1234 storniert
+Wird die Stornierung nicht bestätigt

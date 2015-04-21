@@ -1,5 +1,6 @@
 package com.nat_spec.examples.airline.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
@@ -11,6 +12,7 @@ import com.nat_spec.examples.airline.persistence.entity.Passenger;
 import com.nat_spec.examples.airline.services.AirlineServices;
 import com.nat_spec.examples.airline.services.OperationStatus;
 
+import de.devboost.natspec.annotations.BooleanSyntax;
 import de.devboost.natspec.annotations.TextSyntax;
 
 public class TestSupport {
@@ -18,19 +20,18 @@ public class TestSupport {
 	private AirlineServices services;
 	private InMemoryPersistenceContext persistenceContext;
 
-	public TestSupport(AirlineServices services,
-			InMemoryPersistenceContext persistenceContext) {
+	public TestSupport(AirlineServices services, InMemoryPersistenceContext persistenceContext) {
 		super();
 		this.services = services;
 		this.persistenceContext = persistenceContext;
 	}
 
-	@TextSyntax("With age of #2 years")
-	public void setAge(Passenger passenger, int age) {
-		passenger.setAge(age);
-	}
+//	@TextSyntax("With age of #2 years")
+//	public void setAge(Passenger passenger, int age) {
+//		passenger.setAge(age);
+//	}
 
-	@TextSyntax("Assume no valid ticket is issued")
+	@TextSyntax("Wird kein valides Ticket ausgestellt")
 	public void assumeFailure(OperationStatus status) {
 		Assert.assertFalse(status.toString(), status.isValid());
 	}
@@ -45,45 +46,56 @@ public class TestSupport {
 		return services.bookSeat(passenger, flight);
 	}
 
-	@TextSyntax("Cancel seat for #1 at #2")
+	@TextSyntax("Wenn Passagier #1 sein Ticket für Flug #2 storniert")
 	public OperationStatus cancelSeat(Passenger passenger, Flight flight) {
 		return services.cancelSeat(passenger, flight);
 	}
 
-	@TextSyntax("Given a Passenger #1 #2")
+	@TextSyntax("Wenn ein Passagier #1 #2")
 	public Passenger givenAPassenger(String firstname, String lastname) {
 		return persistenceContext.createPassenger(firstname, lastname);
 	}
 
-	@TextSyntax("Given an Airplane #1")
 	public AirplaneType givenAnAirplane(String airplaneType) {
 		return persistenceContext.createAirplaneType(airplaneType);
 	}
 
-	@TextSyntax("Given a flight #1")
+	@TextSyntax("Für den Flug #1")
 	public Flight givenAFlight(String flightName) {
 		return persistenceContext.createFlight(flightName);
 	}
 
-	@TextSyntax("that is executed using a #1")
-	public void withAirplane(AirplaneType airplaneType, Flight flight) {
+	@TextSyntax("der mit einer #1 ausgeführt wird")
+	public void withAirplane(String airplaneTypeName, Flight flight) {
+		AirplaneType airplaneType = givenAnAirplane(airplaneTypeName);
 		flight.setAirplane(airplaneType);
 		persistenceContext.update(flight);
 	}
 
-	@TextSyntax("With #1 free seats")
+	@TextSyntax("und #1 freie Sitzplätze hat")
 	public void withFreeSeats(int numberOfSeats, Flight flight) {
 		flight.setFreeSeats(numberOfSeats);
 		persistenceContext.update(flight);
 	}
 
-	@TextSyntax("Assume a valid ticket is issued")
+	@TextSyntax("Wird ein valides Ticket ausgestellt")
 	public void assumeAValidTicketIsIssued(OperationStatus status) {
 		assertTrue(status.getMessage(), status.isValid());
 	}
 
-	@TextSyntax("Assume cancellation successful")
-	public void assumeCancellationSuccessful(OperationStatus status) {
-		assertTrue(status.getMessage(), status.isValid());
+	@TextSyntax("Wird die Stornierung #1 bestätigt")
+	public void assumeCancellationSuccessful(@BooleanSyntax(value = { "", "nicht" }) Boolean successExpected,
+			OperationStatus status) {
+		assertEquals(status.getMessage(), successExpected, status.isValid());
+	}
+
+	@TextSyntax("Einen Sitzplatz bucht")
+	public OperationStatus einenSitzplatzBucht(Flight flight, Passenger passenger) {
+		return bookSeat(passenger, flight);
+	}
+
+	@TextSyntax("Wenn #1 erneut ein Ticket für #2 bucht")
+	public OperationStatus wennErneutEinTicketFürBucht(Passenger passenger, Flight flight) {
+		return bookSeat(passenger, flight);
 	}
 }
