@@ -8,4 +8,4 @@ Require-Bundle: com.nat-spec.examples.airline.persistence,
  de.devboost.natspec.annotations,
  org.junit,
  de.devboost.natspec.junit4.runner
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

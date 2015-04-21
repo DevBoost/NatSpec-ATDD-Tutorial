@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Services
 Bundle-SymbolicName: com.nat-spec.examples.airline.services
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: com.nat-spec.examples.airline.persistence,
  de.devboost.natspec.annotations
 Export-Package: com.nat_spec.examples.airline.services
