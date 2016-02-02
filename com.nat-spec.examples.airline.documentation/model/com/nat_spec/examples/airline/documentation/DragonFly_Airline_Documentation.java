@@ -6,8 +6,7 @@ import de.devboost.natspec.library.documentation.DocumentationSupport;
 
 public class DragonFly_Airline_Documentation {
 
-	private DocumentationSupport documentationSupport = new DocumentationSupport(
-			this.getClass());
+	private DocumentationSupport documentationSupport = new DocumentationSupport(DragonFly_Airline_Documentation.class);
 
 	public static void main(String[] args) throws Exception {
 		new DragonFly_Airline_Documentation().saveDocumentation();

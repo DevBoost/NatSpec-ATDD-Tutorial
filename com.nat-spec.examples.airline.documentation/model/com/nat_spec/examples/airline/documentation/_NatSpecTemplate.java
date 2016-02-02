@@ -6,8 +6,7 @@ import de.devboost.natspec.library.documentation.DocumentationSupport;
 
 public class _NatSpecTemplate {
 
-	private DocumentationSupport documentationSupport = new DocumentationSupport(
-			this.getClass());
+	private DocumentationSupport documentationSupport = new DocumentationSupport(_NatSpecTemplate.class);
 
 	public static void main(String[] args) throws Exception {
 		new _NatSpecTemplate().saveDocumentation();
